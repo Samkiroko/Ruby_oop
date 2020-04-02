@@ -3,7 +3,7 @@ AllCops:
     - "README.md"
     - "Guardfile"
     - "Rakefile"
-    - "spec/**/*"
+    # - "spec/**/*"
     - "vendor/**/*"
     - "spec/fixtures/**/*"
     - "tmp/**/*"
@@ -14,7 +14,7 @@ AllCops:
   DisplayCopNames: true
    
 Layout/LineLength:
-  Max: 120
+  Max: 140
 Metrics/MethodLength:
   Max: 20
 Metrics/AbcSize:
@@ -24,6 +24,9 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   ExcludedMethods: ["describe"]
   Max: 30
+Metrics/ModuleLength:
+  Exclude:
+    - "spec/**/*.rb"
 
 Style/Documentation:
   Enabled: false
@@ -45,3 +48,7 @@ Layout/ExtraSpacing:
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*.rb"

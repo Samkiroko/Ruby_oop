@@ -5,7 +5,7 @@ require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
 
 RSpec.describe Board do
-  let (:board) { Board.new }
+  let(:board) { Board.new }
 
   describe '#update' do
     it 'update positions with X' do
@@ -21,21 +21,20 @@ RSpec.describe Board do
     end
   end
 
-  describe "#win?" do
-    
-    it "return true if player win" do
+  describe '#win?' do
+    it 'return true if player win' do
       player1 = double('player')
-      allow(player1).to receive(:name) {"Sam"}     
-      allow(player1).to receive(:inputs) {[2,5,4,8]}     
-      expect(board.win?(player1,board)).to be true
+      allow(player1).to receive(:name) { 'Sam' }
+      allow(player1).to receive(:inputs) { [2, 5, 4, 8] }
+      expect(board.win?(player1, board)).to be true
     end
-    
-    it "return false if player is not winning" do
+
+    it 'return false if player is not winning' do
       player2 = double('player')
-      allow(player2).to receive(:name) {"Moin"}
-      allow(player2).to receive(:inputs) {[2,5,9]}
-      expect(board.win?(player2,board)).to be false
-    end 
+      allow(player2).to receive(:name) { 'Moin' }
+      allow(player2).to receive(:inputs) { [2, 5, 9] }
+      expect(board.win?(player2, board)).to be false
+    end
   end
 
   describe '#taken?' do
