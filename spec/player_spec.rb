@@ -8,6 +8,7 @@ RSpec.describe Player do
   context '#initialize' do
     player = Player.new('sam', 'X')
     it 'check name is sam' do
+      allow(player).to receive(:name) { 'sam' }
       expect(player.name).to eql('sam')
     end
 
