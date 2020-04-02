@@ -29,6 +29,8 @@ class Board
     if @lines.any? { |x| x - player.inputs == [] }
       winner_display(player.name, board.positions)
       true
+    else
+      false
     end
   end
 

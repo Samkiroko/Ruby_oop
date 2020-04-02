@@ -1,4 +1,8 @@
-require './lib/interface'
+require 'rspec'
+require_relative '../lib/interface.rb'
+require_relative '../lib/board.rb'
+require_relative '../lib/player.rb'
+require_relative '../lib/game.rb'
 
 RSpec.describe Interface do
   include Interface

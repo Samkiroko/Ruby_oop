@@ -1,4 +1,8 @@
-require './lib/board'
+require 'rspec'
+require_relative '../lib/interface.rb'
+require_relative '../lib/board.rb'
+require_relative '../lib/player.rb'
+require_relative '../lib/game.rb'
 
 RSpec.describe Board do
   let (:board) { Board.new }
@@ -10,25 +14,28 @@ RSpec.describe Board do
     end
   end
 
-  describe '#full?' do
+  describe '#draw?' do
     it 'return true if it is full' do
       board.positions = %w[x z o x x x w e f]
-      expect(board.full?).to be true
+      expect(board.draw?).to be true
     end
   end
 
-  describe '#win?' do
-    it 'return true if player win' do
+  describe "#win?" do
+    
+    it "return true if player win" do
       player1 = double('player')
-      allow(player1).to receive(:inputs) { [2, 5, 4, 8] }
-      expect(board.win?(player1.inputs)).to be true
+      allow(player1).to receive(:name) {"Sam"}     
+      allow(player1).to receive(:inputs) {[2,5,4,8]}     
+      expect(board.win?(player1,board)).to be true
     end
-
-    it 'return false if player is not winning' do
+    
+    it "return false if player is not winning" do
       player2 = double('player')
-      allow(player2).to receive(:inputs) { [2, 5, 9] }
-      expect(board.win?(player2.inputs)).to be false
-    end
+      allow(player2).to receive(:name) {"Moin"}
+      allow(player2).to receive(:inputs) {[2,5,9]}
+      expect(board.win?(player2,board)).to be false
+    end 
   end
 
   describe '#taken?' do
