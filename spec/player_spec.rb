@@ -5,11 +5,10 @@ require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
 
 RSpec.describe Player do
-  describe '#initialize' do
-    player = Player.new('kelvin', 'X')
-
-    it 'check name is Kelvin' do
-      expect(player.name).to eql('kelvin')
+  context '#initialize' do
+    player = Player.new('sam', 'X')
+    it 'check name is sam' do
+      expect(player.name).to eql('sam')
     end
 
     it "check player's inputs is empty" do
