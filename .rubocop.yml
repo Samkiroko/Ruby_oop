@@ -4,9 +4,15 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "./spec/**/*"
+    - "vendor/**/*"
+    - "spec/fixtures/**/*"
+    - "tmp/**/*"
+    - ".git/**/*"
+
+  TargetRubyVersion: 2.3
 
   DisplayCopNames: true
-
+   
 Layout/LineLength:
   Max: 120
 Metrics/MethodLength:
