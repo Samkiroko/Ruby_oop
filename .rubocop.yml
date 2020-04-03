@@ -3,13 +3,20 @@ AllCops:
     - "README.md"
     - "Guardfile"
     - "Rakefile"
+    # - "spec/**/*"
+    - "vendor/**/*"
+    - "spec/fixtures/**/*"
+    - "tmp/**/*"
+    - ".git/**/*"
+
+  TargetRubyVersion: 2.3
 
   DisplayCopNames: true
-
+   
 Layout/LineLength:
-  Max: 120
+  Max: 140
 Metrics/MethodLength:
-  Max: 80
+  Max: 20
 Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
@@ -17,6 +24,9 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   ExcludedMethods: ["describe"]
   Max: 30
+Metrics/ModuleLength:
+  Exclude:
+    - "spec/**/*.rb"
 
 Style/Documentation:
   Enabled: false
@@ -38,3 +48,7 @@ Layout/ExtraSpacing:
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*.rb"

@@ -5,6 +5,7 @@ class Player
   attr_writer :name, :inputs
 
   def initialize(name, char)
+    # @name = %w[player1 player2].include?(name) ? get_input('name', name) : name
     @name = get_input('name', name)
     @inputs = []
     @char = char
